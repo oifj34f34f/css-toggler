@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "CSS Toggler",
+    "version": "1.1",
+
+    "description": "Browser extension to quickly toggle CSS.",
+
+    "icons": {
+        "16": "assets/css-enabled.svg",
+        "32": "assets/css-enabled.svg",
+        "64": "assets/css-enabled.svg"
+    },
+
+    "browser_action": {
+        "default_icon": {
+            "16": "assets/css-enabled.svg",
+            "32": "assets/css-enabled.svg",
+            "64": "assets/css-enabled.svg"
+        },
+        "default_title": "Click to disable CSS"
+    },
+
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["src/toggle-css.js"]
+    }],
+
+    "background": {
+        "scripts": [
+            "src/background.js"
+        ]
+    }
+}

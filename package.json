@@ -1,0 +1,38 @@
+{
+    "name": "toggle-css",
+    "version": "1.1.0",
+    "description": "Browser extension to quickly toggle CSS",
+    "main": "src/background.js",
+    "scripts": {
+        "fmt": "js-beautify -nr manifest.json package.json; find ./src -type f -name '*.js' -exec js-beautify -nr {} \\;",
+        "lint": "npm run fmt; npm run lint-eslint; npm run lint-web-ext",
+        "lint-eslint": "find ./src -type f -name '*.js' -exec eslint {} \\;",
+        "lint-web-ext": "web-ext lint",
+        "test": "web-ext run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/atomicparade/css-toggler.git"
+    },
+    "keywords": [
+        "Browser",
+        "extension",
+        "CSS"
+    ],
+    "author": "atomicparade (https://github.com/atomicparade)",
+    "contributors": [
+        "atomicparade (https://github.com/atomicparade",
+        "YFdyh000 <yfdyh000@gmail.com>"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/atomicparade/css-toggler/issues"
+    },
+    "homepage": "https://github.com/atomicparade/css-toggler",
+    "devDependencies": {
+        "eslint": "^4.4.1",
+        "eslint-config-airbnb-base": "^11.3.1",
+        "eslint-plugin-import": "^2.7.0",
+        "js-beautify": "^1.6.14"
+    }
+}
