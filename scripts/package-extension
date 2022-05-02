@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zip -FS ../css-toggler.zip manifest.json LICENSE.md assets/*.png src/*
