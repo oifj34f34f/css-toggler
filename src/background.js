@@ -1,8 +1,15 @@
 const disabledTabIds = [];
 
 async function updateIcon() {
-    const disabledSVGPath = 'assets/css-disabled.svg';
-    const enabledSVGPath = 'assets/css-enabled.svg';
+    const disabledIconPaths = {
+        48: 'assets/css-disabled-48.png',
+        96: 'assets/css-disabled-96.png',
+    };
+
+    const enabledIconPaths = {
+        48: 'assets/css-enabled-48.png',
+        96: 'assets/css-enabled-96.png',
+    };
 
     const currentTab = (await browser.tabs.query({
         active: true,
@@ -12,18 +19,10 @@ async function updateIcon() {
     let iconTitle;
     let iconPath;
     if (disabledTabIds.includes(currentTab.id)) {
-        iconPath = {
-            16: disabledSVGPath,
-            32: disabledSVGPath,
-            64: disabledSVGPath,
-        };
+        iconPath = disabledIconPaths;
         iconTitle = 'Click to enable CSS';
     } else {
-        iconPath = {
-            16: enabledSVGPath,
-            32: enabledSVGPath,
-            64: enabledSVGPath,
-        };
+        iconPath = enabledIconPaths;
         iconTitle = 'Click to disable CSS';
     }
 

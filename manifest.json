@@ -6,16 +6,14 @@
     "description": "Browser extension to quickly toggle CSS.",
 
     "icons": {
-        "16": "assets/css-enabled.svg",
-        "32": "assets/css-enabled.svg",
-        "64": "assets/css-enabled.svg"
+        "48": "assets/css-enabled-48.png",
+        "96": "assets/css-enabled-96.png"
     },
 
     "browser_action": {
         "default_icon": {
-            "16": "assets/css-enabled.svg",
-            "32": "assets/css-enabled.svg",
-            "64": "assets/css-enabled.svg"
+            "48": "assets/css-enabled-48.png",
+            "96": "assets/css-enabled-96.png"
         },
         "default_title": "Click to disable CSS"
     },

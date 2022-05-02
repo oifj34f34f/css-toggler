@@ -1,48 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   id="svg8"
-   version="1.1"
-   viewBox="0 0 25.4 25.4"
-   height="96"
-   width="96">
-  <defs
-     id="defs2" />
-  <metadata
-     id="metadata5">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     transform="translate(0,-271.59998)"
-     id="layer1">
-    <g
-       id="g4611">
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:12.47897243px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:0.98999999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31197432"
-         x="-0.0085266111"
-         y="290.5748"
-         id="text3682"><tspan
-           id="tspan3680"
-           x="-0.0085266111"
-           y="290.5748"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.875px;font-family:impact;-inkscape-font-specification:impact;fill:#ffffff;stroke:#000000;stroke-width:0.75">CSS</tspan></text>
-      <path
-         style="opacity:0.98999999;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.20319021;stroke-opacity:1"
-         d="M 12.7,273.79998 A 10.500189,10.50019 0 0 0 2.2,284.29997 10.500189,10.50019 0 0 0 12.7,294.79998 10.500189,10.50019 0 0 0 23.2,284.29997 10.500189,10.50019 0 0 0 12.7,273.79998 Z m 0,1.74992 a 8.7501575,8.7501585 0 0 1 5.533289,1.97919 L 5.9286507,289.83372 A 8.7501575,8.7501585 0 0 1 3.9499245,284.29997 8.7501575,8.7501585 0 0 1 12.7,275.5499 Z m 6.771349,3.21634 a 8.7501575,8.7501585 0 0 1 1.978727,5.53373 A 8.7501575,8.7501585 0 0 1 12.7,293.05006 8.7501575,8.7501585 0 0 1 7.166711,291.07087 Z"
-         id="path4512" />
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,-0.94043,71.7159)">
+        <g id="text3682">
+            <text x="0px" y="0px" style="font-family:'Consolas', monospace;font-size:60px;fill:white;stroke:black;stroke-width:3.2px;">CSS</text>
+        </g>
     </g>
-  </g>
+    <g id="layer1" transform="matrix(1,0,0,1,0,-1026.52)">
+        <g id="g4611">
+            <path id="path4512" d="M48,1034.84C26.23,1034.84 8.315,1052.75 8.315,1074.52C8.315,1096.29 26.23,1114.2 48,1114.2C69.77,1114.2 87.685,1096.29 87.685,1074.52C87.685,1052.75 69.77,1034.84 48,1034.84ZM48,1041.45C55.623,1041.46 63.014,1044.1 68.913,1048.93L22.407,1095.43C17.579,1089.54 14.936,1082.14 14.929,1074.52C14.929,1056.38 29.858,1041.45 48,1041.45ZM73.593,1053.61C78.421,1059.5 81.064,1066.9 81.071,1074.52C81.071,1092.66 66.142,1107.59 48,1107.59C40.377,1107.58 32.986,1104.94 27.087,1100.11L73.593,1053.61Z" style="fill:rgb(255,0,0);fill-opacity:0.99;fill-rule:nonzero;"/>
+        </g>
+    </g>
 </svg>
