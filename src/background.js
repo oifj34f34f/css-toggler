@@ -78,30 +78,18 @@ function toggleCss(activeTab) {
 
 browser.browserAction.onClicked.addListener((activeTab) => {
     toggleCss(activeTab);
-
-    console.log(`Button clicked for tab: ${activeTab.id}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
 
-browser.tabs.onActivated.addListener((activeInfo) => {
+browser.tabs.onActivated.addListener((_activeInfo) => {
     updateIcon();
-
-    console.log(`Activated tab: ${activeInfo.tabId}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
 
 browser.tabs.onRemoved.addListener((tabId) => {
     setTabCssDisabled(tabId, false);
-
-    console.log(`Removed tab: ${tabId}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
 
 browser.tabs.onReplaced.addListener((tabId) => {
     setTabCssDisabled(tabId, false);
-
-    console.log(`Replaced tab: ${tabId}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
@@ -121,13 +109,8 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
     }
 
     updateIcon();
-    console.log(`Updated tab: ${tabId}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
 
-browser.windows.onFocusChanged.addListener((windowId) => {
+browser.windows.onFocusChanged.addListener((_windowId) => {
     updateIcon();
-
-    console.log(`Changed focus to window: ${windowId}`);
-    console.log(`Disabled tab IDs: [${disabledTabIds.join(', ')}]`);
 });
