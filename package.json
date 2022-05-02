@@ -1,6 +1,6 @@
 {
     "name": "css-toggler",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Browser extension to quickly toggle CSS",
     "main": "src/background.js",
     "scripts": {
