@@ -1,4 +1,38 @@
+// background.js
 const disabledTabIds = [];
+
+chrome.browserAction.onClicked.addListener((activeTab) => {
+    toggleCss(activeTab);
+});
+
+chrome.tabs.onActivated.addListener((_activeInfo) => {
+    updateIcon();
+});
+
+chrome.tabs.onRemoved.addListener((tabId) => {
+    setTabCssDisabled(tabId, false);
+});
+
+chrome.tabs.onReplaced.addListener((tabId) => {
+    setTabCssDisabled(tabId, false);
+});
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status === 'complete') {
+        if (tabCssIsDisabled(tabId)) {
+            chrome.tabs.sendMessage(tabId, {
+                disableCss: true,
+            }).catch(() => {});
+        }
+    }
+
+    updateIcon();
+});
+
+chrome.windows.onFocusChanged.addListener((_windowId) => {
+    updateIcon();
+});
+
 
 async function updateIcon() {
     const disabledIconPaths = {
@@ -11,10 +45,7 @@ async function updateIcon() {
         96: 'assets/css-enabled-96.png',
     };
 
-    const currentTab = (await browser.tabs.query({
-        active: true,
-        currentWindow: true,
-    }))[0];
+    const currentTab = await getCurrentTab();
 
     let iconTitle;
     let iconPath;
@@ -26,15 +57,26 @@ async function updateIcon() {
         iconTitle = 'Click to disable CSS';
     }
 
-    browser.browserAction.setIcon({
+    chrome.browserAction.setIcon({
         path: iconPath,
         tabId: currentTab.id,
     });
-    browser.browserAction.setTitle({
+    chrome.browserAction.setTitle({
         title: iconTitle,
         tabId: currentTab.id,
     });
 }
+
+async function getCurrentTab() {
+    return new Promise((resolve) => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            resolve(tabs[0]);
+        });
+    });
+}
+
+// Call the function immediately
+updateIcon();
 
 function tabCssIsDisabled(tabId) {
     return disabledTabIds.includes(tabId);
@@ -64,52 +106,7 @@ function toggleCss(activeTab) {
     const disableCss = !tabCssIsDisabled(activeTab.id);
     setTabCssDisabled(activeTab.id, disableCss);
 
-    // Tell the content script to enable/disable CSS
-    browser.tabs.sendMessage(activeTab.id, {
-            disableCss,
-        })
-        .catch(() => {
-            // Disabling the CSS can fail if the tab is not on a webpage
-            // Ignore the error - when the tab loads a webpage, disable the
-            // CSS at that time
-        });
+    chrome.tabs.sendMessage(activeTab.id, {
+        disableCss,
+    }).catch(() => {});
 }
-
-browser.browserAction.onClicked.addListener((activeTab) => {
-    toggleCss(activeTab);
-});
-
-browser.tabs.onActivated.addListener((_activeInfo) => {
-    updateIcon();
-});
-
-browser.tabs.onRemoved.addListener((tabId) => {
-    setTabCssDisabled(tabId, false);
-});
-
-browser.tabs.onReplaced.addListener((tabId) => {
-    setTabCssDisabled(tabId, false);
-});
-
-browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
-    // If the tab finished loading and CSS is supposed to be disabled, tell the
-    // tab to disable CSS
-    if (changeInfo.status === 'complete') {
-        if (tabCssIsDisabled(tabId)) {
-            browser.tabs.sendMessage(tabId, {
-                    disableCss: true,
-                })
-                .catch(() => {
-                    // Disabling the CSS can fail if the tab is not on a webpage
-                    // Ignore the error - when the tab loads a webpage, disable
-                    // the CSS at that time
-                });
-        }
-    }
-
-    updateIcon();
-});
-
-browser.windows.onFocusChanged.addListener((_windowId) => {
-    updateIcon();
-});

@@ -1,31 +1,27 @@
 {
-    "manifest_version": 2,
-    "name": "CSS Toggler",
-    "version": "1.2",
-
-    "description": "Browser extension to quickly toggle CSS.",
-
-    "icons": {
-        "48": "assets/css-enabled-48.png",
-        "96": "assets/css-enabled-96.png"
-    },
-
-    "browser_action": {
-        "default_icon": {
-            "48": "assets/css-enabled-48.png",
-            "96": "assets/css-enabled-96.png"
-        },
-        "default_title": "Click to disable CSS"
-    },
-
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["src/toggle-css.js"]
-    }],
-
-    "background": {
-        "scripts": [
-            "src/background.js"
-        ]
-    }
+   "background": {
+      "persistent": false,
+      "scripts": [ "src/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "48": "assets/css-enabled-48.png",
+         "96": "assets/css-enabled-96.png"
+      },
+      "default_title": "Click to disable CSS"
+   },
+   "content_scripts": [ {
+      "js": [ "src/toggle-css.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "description": "Browser extension to quickly toggle CSS.",
+   "icons": {
+      "48": "assets/css-enabled-48.png",
+      "96": "assets/css-enabled-96.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuZn19Mvjwm7oAyp0aKlIiwESISDAxNNCp38igDHhYzswdYnSU4JYIZzT/UHlygmtJV3mkjfn2Das43az5sPgTecQ6dlKiczgKOVd2YxdxgFWRI6VN0j9dpzF49pqhNCUkJM+jWg9W+5tsYljSdakwZQGJ/SzQ6dG+jWPvKpwo8UJ1tM8iQpiTC5J+0GtS5NiCY4ggYZXkEXxt2G//Sc8t1rgevbLl6LD9gYY7gTkK0bOHxg5rPydvE7zcfpOo6v3HpqA7sHF4eNmllI3MPTU+W/tL03zC/xbjyv+10R32Cl2z1UkuAfs/B2MYFPRQ1D+oMVT47Z3pGogun2WEi+uoQIDAQAB",
+   "manifest_version": 2,
+   "name": "CSS Toggler",
+   "permissions": [ "activeTab", "storage", "tabs" ],
+   "version": "1.2"
 }

@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2017-2022 atomicparade - https://github.com/atomicparade
+Copyright (c) 2024 oifj34f34f
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

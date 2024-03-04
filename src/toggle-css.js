@@ -1,5 +1,4 @@
 function toggleCss(request) {
-    // eslint-disable-next-line no-restricted-syntax
     for (const s of document.styleSheets) {
         s.disabled = request.disableCss;
     }
@@ -17,4 +16,4 @@ function toggleCss(request) {
     }
 }
 
-browser.runtime.onMessage.addListener(toggleCss);
+chrome.runtime.onMessage.addListener(toggleCss);
